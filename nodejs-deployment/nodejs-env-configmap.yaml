@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  MONGO_DB: items-database
+  MONGO_PORT: "27017"
+  MONGO_STATEFULSET_NAME: mongodb
+  MONGO_SERVICE_NAME: db
+  MONGO_NAMESPACE: default
+  MONGO_REPLICAS_COUNT: "5"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nodejs-env
+  name: nodejs-env
