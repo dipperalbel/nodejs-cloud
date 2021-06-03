@@ -1,0 +1,6 @@
+#!/bin/bash
+
+kubectl set image deployment/nodejs nodejs=mrmagik/nodejs-docker:$1 --record
+
+kubectl rollout status deployment/nodejs
+

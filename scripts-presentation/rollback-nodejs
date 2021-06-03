@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl rollout undo deployment/nodejs
+
+kubectl rollout status deployment/nodejs

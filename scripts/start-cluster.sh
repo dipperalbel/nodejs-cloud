@@ -1,6 +1,6 @@
 #!/bin/bash
 
-kind create cluster --config kind-config.yaml --name=prova
+kind create cluster --config kind-config.yaml --name=$USER
 
 kubectl wait --for=condition=Ready nodes --all=true --timeout=140s
 
@@ -14,6 +14,6 @@ kubectl patch deployments -n ingress-nginx nginx-ingress-controller -p '{"spec":
 
 kubectl -n ingress-nginx wait --for=condition=Ready pods --all=true --timeout=140s
 
-kubectl label nodes prova-worker tier=mongodb
+kubectl label nodes $USER-worker tier=nodejs
 
-kubectl label nodes prova-worker2 tier=nodejs
+kubectl label nodes $USER-worker2 tier=mongodb

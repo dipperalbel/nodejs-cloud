@@ -1,0 +1,20 @@
+#!/bin/bash
+
+MONGODB_PODS=$(kubectl get po -l app.kubernetes.io/name=mongodb --no-headers | wc -l )
+
+if [ "$1" -le "1" ] || [ "$1" -ge "8" ]
+then
+	echo "The number of pods for mongodb statefulset must be greater than 1 and less than 8"
+
+elif [ "$MONGODB_PODS" -le "$1" ]
+then
+	echo "Scaling up the mongodb statefulset"
+	kubectl scale --replicas=$1 statefulset/mongodb
+	kubectl rollout status statefulset/mongodb
+	kubectl set env deployment/nodejs MONGO_REPLICAS_COUNT=$1
+else
+	echo "Scaling down the mongodb statefulset"
+	kubectl set env deployment/nodejs MONGO_REPLICAS_COUNT=$1
+	kubectl rollout status deployment/nodejs
+	kubectl scale --replicas=$1 statefulset/mongodb
+fi

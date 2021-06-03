@@ -74,7 +74,7 @@ spec:
             secretKeyRef:
               name: mongo-secret
               key: MONGO_USERNAME
-        image: mrmagik/nodejs-docker:2.0
+        image: mrmagik/nodejs-docker:1.0
         name: nodejs
         ports:
         - containerPort: 8080
