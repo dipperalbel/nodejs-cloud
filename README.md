@@ -1,6 +1,6 @@
 # Fog & Cloud Computing Project: A stateless + stateful web application
 
-Project for the Fog and Cloud COmputing course, 2020/2021.
+Project for the Fog and Cloud Computing course, 2020/2021, with the implementation of a stateless + statefull web application.
 
 ### IaaS: Open Stack
 
