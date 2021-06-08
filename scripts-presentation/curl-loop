@@ -1,0 +1,3 @@
+#!/bin/bash
+
+while true; do curl -s -o /dev/null -w "%{http_code}\n" paas-01.fcc21.fogx.me/items/getitems; sleep $1; done

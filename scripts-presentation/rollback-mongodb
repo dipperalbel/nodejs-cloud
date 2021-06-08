@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MONGODB_PODS=$(kubectl get po -l app.kubernetes.io/name=mongodb --no-headers | wc -l )
+
+TARGET=`expr $MONGODB_PODS - 1`
+
+kubectl rollout undo statefulset/mongodb
+
+kubectl delete pods mongodb-$TARGET
+

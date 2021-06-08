@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kind delete cluster --name=prova
+kind delete cluster --name=$USER

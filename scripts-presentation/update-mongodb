@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd mongodb-deployment
+
+MONGODB_PODS=$(kubectl get po -l app.kubernetes.io/name=mongodb --no-headers | wc -l )
+
+helm upgrade -f values.yaml --set image.tag=$1 --set replicaCount=$MONGODB_PODS mongodb bitnami/mongodb
+
+kubectl rollout status statefulset/mongodb

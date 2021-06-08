@@ -10,3 +10,4 @@ spec:
         backend:
           serviceName: nodejs
           servicePort: 80
+

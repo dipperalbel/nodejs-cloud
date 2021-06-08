@@ -1,5 +1,7 @@
 #!/bin/bash
 
+kubectl rollout status statefulset/mongodb
+
 MONGODB_PODS=$(kubectl get po -l app.kubernetes.io/name=mongodb --no-headers | wc -l )
 
 if [ "$1" -le "1" ] || [ "$1" -ge "8" ]
